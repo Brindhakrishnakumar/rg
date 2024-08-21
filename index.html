@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Registration Form</title>
+    <styles>
+      body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #2f53d6;
+    margin: 0;
+}
+
+.form-container {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    width: 300px;
+    text-align: center;
+}
+
+.form-container h2 {
+    margin-bottom: 20px;
+}
+
+.form-container label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-container input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #0f4deb;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.form-container button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.form-container button:hover {
+    background-color: #45a049;
+}
+
+.message {
+    margin-top: 20px;
+    font-size: 16px;
+}
+    </styles>
+</head>
+
+<body>
+    <div class="form-container">
+        <h2>Registration Form</h2>
+        <form id="registrationForm">
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" name="firstName" required>
+
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" name="lastName" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="contact">Contact Number:</label>
+            <input type="tel" id="contact" name="contact" required>
+
+            <label for="city">City:</label>
+            <input type="text" id="city" name="city" required>
+            
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="address" required>
+
+            <label for="age">Age:</label>
+            <input type="tel" id="age" name="age" required>
+
+            <button type="submit">Submit</button>
+        </form>
+        <div id="message" class="message"></div>
+    </div>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('registrationForm');
+    const message = document.getElementById('message');
+
+    form.addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent form from submitting the default way
+
+        // Retrieve input values
+        const firstname = document.getElementById('firstname').value.trim();
+        const lastname = document.getElementById('lastname').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const contact = document.getElementById('contact').value.trim();
+        const city = document.getElementById('city').value.trim();
+        const address= document.getElementById('address').value.trim();
+        const age = document.getElementById('age').value.trim();
+        
+
+        // Simple validation: Check if all fields are filled
+        if (firstname && lastname && email && contact && city && address && age) {
+            // Show the message if validation passes
+            message.style.display = 'block';
+            form.reset(); // Optionally reset the form fields
+        } else {
+            // Handle validation failure (Optional: show an alert)
+            message.style.display = 'none';
+            alert('Please fill out all fields.');
+        }
+    });
+});
+    </script>
+</html>
+</body>
